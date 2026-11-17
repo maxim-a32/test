@@ -47,4 +47,5 @@ jobs:
                 tags: |
                     ${{ secrets.DOCKERHUB_USERNAME }}/test:${{ env.BRANCH_TAG }}
                     ${{ secrets.DOCKERHUB_USERNAME }}/test:${{ env.IMAGE_TAG }}
-            
+          - name: Deploy to Render
+            run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
